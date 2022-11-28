@@ -1,0 +1,23 @@
+{% extends 'main/base.html'%}
+
+
+{% block title %}
+Створити запис
+{% endblock %}
+
+{% block content %}
+<h2>Створити діагноз</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.diag_id}}<br>
+        {{ form.patient}}<br>
+        {{ form.disease}}<br>
+        {{ form.doctor}}<br>
+        {{ form.dateOfApplication}}<br>
+        {{ form.dateOfRecovery}}<br>
+<!--        <input type="text" placeholder="Введіть Id" class="form-control"><br>-->
+<!--        <textarea placeholder="Введіть назву спеціалізації" class="form-control"></textarea>-->
+        <button type="submit" class = "btn btn-success">Додати</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

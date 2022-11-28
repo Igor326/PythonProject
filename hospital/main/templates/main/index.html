@@ -1,0 +1,202 @@
+{% extends 'main/base.html'%}
+
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+    <h2>Записи</h2>
+
+
+
+{% if specs %}
+     </table>
+        <div>
+            <table class="table table-hover">
+                <thead >
+                    <tr>
+                            <th colspan = 3 >Спеціалізації</th>
+                        </tr>
+                    <tr>
+                        <th scope="row">Id</th>
+                        <th> Спеціалізація</th>
+                    </tr>
+                </thead>
+
+    {%  for elem in specs %}
+
+     <tbody>
+        <tr>
+            <td scope="row">{{elem.spec_id}}</td>
+            <td>{{elem.spec_title}}</td>
+            <td><a href="deleteSpec/{{elem.spec_id}}" class="link-danger">Видалити</a></td>
+      </tr>
+     </tbody>
+
+    {%  endfor %}
+        </table>
+            </div>
+
+        {% else %}
+            <p> Записи спеціалізацій відсутні</p>
+        {% endif %}
+
+        {% if diseases %}
+        <div>
+             <table class="table table-hover">
+                 <thead >
+                    <tr>
+                            <th colspan = 5 >Хвороби</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Назва хвороби</th>
+                            <th scope="col">Профілактика</th>
+                            <th scope="col">Лікування</th>
+                         </tr>
+                </thead>
+    {%  for elem in diseases %}
+
+  <tbody>
+    <tr>
+      <td scope="row">{{elem.dis_id}}</td>
+      <td>{{elem.treatment}}</td>
+      <td>{{elem.profylaxy}}</td>
+      <td>{{elem.dis_name}}</td>
+      <td><a href="deleteDis/{{elem.dis_id}}" class="link-danger">Видалити</a></td>
+    </tr>
+  </tbody>
+
+{%  endfor %}
+            </table>
+    </div>
+{% else %}
+            <p> Записи хвороб відсутні</p>
+        {% endif %}
+
+
+        {% if patients %}
+ <div>
+             <table class="table table-hover">
+                 <thead >
+                        <tr>
+                            <th colspan = 7 >Пацієнти</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Повне ім'я</th>
+                            <th scope="col">Адреса</th>
+                            <th scope="col">Номер телефону</th>
+                            <th scope="col">Страховий поліс</th>
+                            <th scope="col">Номер паспорту</th>
+                         </tr>
+                </thead>
+    {%  for elem in patients %}
+
+  <tbody>
+    <tr>
+      <td scope="row">{{elem.pat_id}}</td>
+      <td>{{elem.passportId}}</td>
+      <td>{{elem.adress}}</td>
+      <td>{{elem.phoneNumber}}</td>
+      <td>{{elem.insurancepolicy}}</td>
+      <td>{{elem.fullName}}</td>
+      <td><a href="deletePat/{{elem.pat_id}}" class="link-danger">Видалити</a></td>
+    </tr>
+  </tbody>
+
+{%  endfor %}
+            </table>
+    </div>
+
+{% else %}
+            <p> Записи пацієнтів відсутні</p>
+        {% endif %}
+
+
+
+         {% if doctors %}
+<div>
+             <table class="table table-hover">
+                 <thead >
+                        <tr>
+                            <th colspan = 8 >Лікарі</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Номер телефону</th>
+                            <th scope="col">Посада</th>
+                            <th scope="col">Спеціалізація</th>
+                            <th scope="col">Досвід роботи</th>
+                            <th scope="col">Адреса проживання</th>
+                             <th scope="col">Повне ім'я</th>
+                         </tr>
+                </thead>
+    {%  for elem in doctors %}
+
+  <tbody>
+    <tr>
+      <td scope="row">{{elem.doc_id}}</td>
+      <td>{{elem.fullName}}</td>
+      <td>{{elem.position}}</td>
+      <td>{{elem.spec}}</td>
+      <td>{{elem.workExp}}</td>
+      <td>{{elem.adress}}</td>
+      <td>{{elem.phoneNumber}}</td>
+      <td><a href="deleteDoc/{{elem.doc_id}}" class="link-danger">Видалити</a></td>
+    </tr>
+  </tbody>
+
+{%  endfor %}
+            </table>
+    </div>
+{% else %}
+            <p> Записи лікарів відсутні</p>
+        {% endif %}
+
+
+
+
+         {% if diagnosis %}
+ <div>
+             <table class="table table-hover">
+                 <thead >
+                        <tr>
+                            <th colspan = 7 >Діагнози</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Пацієнт</th>
+                            <th scope="col">Хвороба</th>
+                            <th scope="col">Лікар</th>
+                            <th scope="col">Дата запису</th>
+                            <th scope="col">Дата одужання</th>
+                         </tr>
+                </thead>
+    {%  for elem in diagnosis %}
+
+  <tbody>
+    <tr>
+      <td scope="row">{{elem.diag_id}}</td>
+      <td>{{elem.patient }}</td>
+      <td>{{elem.disease}}</td>
+      <td>{{elem.doctor}}</td>
+      <td>{{elem.dateOfApplication}}</td>
+      <td>{{elem.dateOfRecovery}}</td>
+      <td><a href="deleteDiag/{{elem.diag_id}}" class="link-danger">Видалити</a></td>
+    </tr>
+  </tbody>
+
+{%  endfor %}
+            </table>
+    </div>
+{% else %}
+            <p> Записи діагнозів відсутні</p>
+        {% endif %}
+
+
+
+{% endblock %}
+

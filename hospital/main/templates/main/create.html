@@ -1,0 +1,36 @@
+{% extends 'main/base.html'%}
+
+
+{% block title %}
+Створити запис
+{% endblock %}
+
+{% block content %}
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Створити запис</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a class="py-2 d-none d-md-inline-block" href="{% url 'createSpec' %}">Спеціалізацію</a></td>
+    </tr>
+    <tr>
+      <td><a class="py-2 d-none d-md-inline-block" href="{% url 'createDis' %}">Хворобу</a></td><
+    </tr>
+    <tr>
+      <td><a class="py-2 d-none d-md-inline-block" href="{% url 'createPat' %}">Пацієнта</a></td>
+    </tr>
+    <tr>
+      <td><a class="py-2 d-none d-md-inline-block" href="{% url 'createDoc' %}">Лікаря</a></td>
+    </tr>
+    <tr>
+      <td><a class="py-2 d-none d-md-inline-block" href="{% url 'createDiag' %}">Діагноз</a></td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
+
